@@ -1,0 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mycompany.buyonlinephone.repository;
+
+import com.mycompany.buyonlinephone.entities.CreditCardEntity;
+import com.mycompany.buyonlinephone.enums.CommonStatus;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author Admin
+ */
+@Repository
+public interface CreditCardRepository extends CrudRepository<CreditCardEntity, Integer>{
+    
+    CreditCardEntity findByCardNumberLikeAndCvcCodeLike (int cardNumber, String cvcCode);
+    
+    CreditCardEntity findByCardNumberLike (int cardNumber);
+    
+    CreditCardEntity findByCvcCodeLike (String cvcCode);
+}
